@@ -1,1 +1,1 @@
-from .discover_solutions import discover_solutions
+from .testing import get_test_suite
