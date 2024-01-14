@@ -13,7 +13,13 @@ def main():
         with open(f"{args.path}/solution1.py", "w") as f:
             pass
 
-        with open(f"{args.path}/test_all.py", "w") as f:
+        sanitized_name = (
+            os.path.basename(args.path)
+            .split(" ", maxsplit=1)[1]
+            .lower()
+            .translate(str.maketrans(" -", "__"))
+        )
+        with open(f"{args.path}/test_{sanitized_name}.py", "w") as f:
             pass
     else:
         print("Unknown command")
